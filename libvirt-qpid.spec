@@ -1,23 +1,23 @@
 Summary: QPid QMF interface to Libvirt
 Name: libvirt-qpid
 Version: 0.2.22
-Release: 3%{?dist}
+Release: 6%{?dist}
 Source: libvirt-qpid-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 License: LGPLv2+
 ExclusiveArch: i686 x86_64
 Group: Applications/System
 Requires: libxml2 >= 2.7.1
-Requires: qmf >= 0.5.790661
-Requires: qpid-cpp-client >= 0.5.790661
+Requires: qmf >= 0.10
+Requires: qpid-cpp-client >= 0.10
 Requires: libvirt >= 0.4.4
 Requires(post):  /sbin/chkconfig
 Requires(preun): /sbin/chkconfig
 Requires(preun): initscripts
-BuildRequires: qpid-cpp-client-devel >= 0.5.790661
+BuildRequires: qpid-cpp-client-devel >= 0.10
 BuildRequires: libxml2-devel >= 2.7.1
 BuildRequires: libvirt-devel >= 0.5.0
-BuildRequires: qmf-devel >= 0.5.790661
+BuildRequires: qmf-devel >= 0.10
 Url: http://libvirt.org/qpid
 
 %description
@@ -74,6 +74,12 @@ test "x$RPM_BUILD_ROOT" != "x" && rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Mar 30 2011 Jiri Denemark <jdenemar@redhat.com> 0.2.22-6
+- Rebuild against new qpid/qmf rhbz#618876
+
+* Fri Feb 04 2011 Alan Pevec <apevec@redhat.com> 0.2.22-5
+- Rebuild against new qpid/qmf rhbz#618876#c19
+
 * Wed Jul 28 2010 Ian Main <imain@redhat.com> 0.2.22-3
 - Rebuild against new qpid/qmf.  Resolves: #618876
 
